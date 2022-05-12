@@ -85,7 +85,7 @@ After install those development dependencies, add the following lines to the scr
 </br></br>
 
 ## TESTING THE APPLICATION
-As mentioned earlier, to run our TypeScript application we will use [ts-node](https://www.npmjs.com/package/ts-node), which is a npm command line tool that allows us to run TypeScript files directly, without the need for precompilation, also known as transpilation.
+As mentioned earlier, to run our TypeScript application we will use [ts-node](https://www.npmjs.com/package/ts-node), which is a TypeScript execution engine that allows us to run TypeScript files directly, without the need for precompilation, also known as transpilation.
 ```shell
 $ npm run dev
 ```
