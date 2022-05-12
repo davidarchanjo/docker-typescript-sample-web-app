@@ -43,7 +43,7 @@ $ npm install -D typescript
 ```
 From the command above, the `-D` flag indicates to `npm install` to install TypeScript as a development dependency, which adds it to the devDependencies list at [package.json](./package.json). 
 
-As a last step, it's required to configure TypeScript compiler options, and for this task we have to create a `tsconfig.json` at the project's root path.
+As a last step, it is required to configure TypeScript compiler options, and for this task we have to create a `tsconfig.json` at the project's root path.
 ```shell
 $ touch tsconfig.json # or tsc --init
 ```
