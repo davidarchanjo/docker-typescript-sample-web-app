@@ -3,8 +3,7 @@
 
 ## REQUIREMENTS
 - Node.js - Version 14 or above
-- Typescript - Version 4.6.4 or above (installed globally)
-- Ts-Node - Version 10.7.0 or above (installed globally)
+- IDE - Visual Studio Code (recommended)
  
 </br></br>
 
