@@ -86,12 +86,12 @@ From those entries, we can now execute the application in development mode by ex
 </br></br>
 
 ## IMPLEMENTING THE APPLICATION
-We will create a [app.ts](./app.ts) file where we will define a very minimalistic web application using the [Express.js](https://expressjs.com/) framework. 
+We will create a [app.ts](./app.ts) file where we will define a very simple Web application using the [Express.js](https://expressjs.com/) framework.
 ```shell
 $ touch app.ts
 ```
 
-And then paste the following lines in it:
+Open the file and pastes the following lines:
 ```typescript
 import express, { Response } from 'express';
 
@@ -111,7 +111,7 @@ The application will start a server and listens on port 8080 for connections. An
 </br></br>
 
 ## TESTING THE APPLICATION
-As mentioned earlier, to run our TypeScript application we will use [ts-node](https://www.npmjs.com/package/ts-node), which is an execution engine that allows us to run TypeScript files directly, without the need for precompilation, also known as transpilation.
+As mentioned earlier, to run our TypeScript application we will use [ts-node](https://www.npmjs.com/package/ts-node), which is an execution engine that allows us to run TypeScript files directly, without the need for precompilation/transpilation to Javascript.
 ```shell
 $ npm run dev
 ```
