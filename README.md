@@ -131,7 +131,7 @@ RUN npm install -g typescript
 RUN tsc -p .
 
 # defines that the application will be listening for request on the port 8080
-EXPOSE 8000
+EXPOSE 8080
 
 # defines the command to run the application
 CMD ["node", "app.js"]
