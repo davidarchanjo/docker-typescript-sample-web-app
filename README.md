@@ -3,10 +3,8 @@
 
 ## REQUIREMENTS
 - Node.js - Version 14 or above
-- Typescript - Version 4.6.4 or above
-- Ts-Node - Version 10.7.0 or above
-
-Especifically for this sample project, these tools must be ideally installed globally on your development environment.  
+- Typescript - Version 4.6.4 or above (installed globally)
+- Ts-Node - Version 10.7.0 or above (installed globally)
  
 </br></br>
 
@@ -90,7 +88,7 @@ As mentioned earlier, to run our TypeScript application we will use [ts-node](ht
 $ npm run dev
 ```
 
-Now, if we visit n your browser http://localhost:8080, we should get the message:
+Now, if we visit our browser at http://localhost:8080, we should get the message:
 ```
 🚀 Hello World from TypeScript 🚀
 ```
@@ -114,7 +112,7 @@ Keep-Alive: timeout=5
 ## DOCKERIZING THE APPLICATION
 ### 1 - Define the Dockerfile
 ```docker
-# indicates what base image will be used
+# indicates the base image
 FROM node:16-alpine
 
 # creates inside the image a directory to hold the application code
@@ -142,7 +140,7 @@ CMD ["node", "app.js"]
 
 
 ### 2 - Define the .dockerignore
-To ensure that only the required files are copied into the Docker image, create a file in the project root called .dockerignore with the following content:
+To ensure that only the required files are copied into the Docker image, create a file in the project root path called .dockerignore with the following content:
 ```dockerignore
 dist
 Dockerfile
