@@ -140,7 +140,7 @@ Keep-Alive: timeout=5
 
 ## DOCKERIZING THE APPLICATION
 ### 1 - Define the Dockerfile
-The [Dockerfile](./Dockerfile) is what we use to configure and create our Docker image. It is through it that it will be defined which components will be used in the compositioin of our container, in addition to allow the definition of a personalized environment which is dedicated to what our project needs.
+The [Dockerfile](./Dockerfile) is what we use to configure and build our Docker image. It is through it that we will define which components will be used in the composition of our container, as well as other requirements at the operating system level that our project needs.
 ```docker
 # indicates the base image
 FROM node:16-alpine
