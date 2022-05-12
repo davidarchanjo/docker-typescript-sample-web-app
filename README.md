@@ -140,7 +140,7 @@ CMD ["node", "app.js"]
 
 
 ### 2 - Define the .dockerignore
-To ensure that only the required files are copied into the Docker image, create a file in the project root path called .dockerignore with the following content:
+To ensure only the required files are copied into the Docker image, create a file in the project root path called .dockerignore with the following content:
 ```dockerignore
 dist
 Dockerfile
