@@ -196,3 +196,9 @@ You should get an output like:
 ```shell
 Express is listening at http://localhost:8080
 ```
+</br>
+
+### 5 - Stop the application image
+```shell
+$ docker kill docker-typescript-sample-web-app
+```
