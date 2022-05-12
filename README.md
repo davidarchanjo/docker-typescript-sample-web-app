@@ -82,6 +82,31 @@ After install those development dependencies, add the following lines to the scr
 
 </br></br>
 
+## IMPLEMENTING THE APPLICATION
+We will create a [app.ts](./app.ts) file where we will define a very minimalistic web application using the [Express.js](https://expressjs.com/) framework. 
+```shell
+$ touch app.ts
+```
+
+And then paste the following lines in it:
+```typescript
+import express, { Response } from 'express';
+
+const app = express();
+const port = process.env.PORT || 8080;
+
+app.get('/', (_, res: Response) => {
+  res.send('🚀 Hello World from TypeScript 🚀');
+});
+
+app.listen(port, () => {
+  console.log(`Application is listening at http://localhost:${port}`);
+});
+```
+The application will start a server and listens on port 8080 for connections. And for requests to the root URL it will respond with "🚀 Hello World from TypeScript 🚀" as we will see next.
+
+</br></br>
+
 ## TESTING THE APPLICATION
 As mentioned earlier, to run our TypeScript application we will use [ts-node](https://www.npmjs.com/package/ts-node), which is an execution engine that allows us to run TypeScript files directly, without the need for precompilation, also known as transpilation.
 ```shell
