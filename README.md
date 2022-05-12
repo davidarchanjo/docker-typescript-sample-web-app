@@ -47,7 +47,7 @@ As a last step, it is required to configure TypeScript compiler options, and for
 ```shell
 $ touch tsconfig.json # or tsc --init
 ```
-For this sample project, we can configure with the following settings:
+For this sample project, we need only to configure the following options:
 ```json
 {
   "compilerOptions": {
