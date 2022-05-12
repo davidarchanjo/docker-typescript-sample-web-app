@@ -107,7 +107,7 @@ app.listen(port, () => {
   console.log(`Application is listening at http://localhost:${port}`);
 });
 ```
-The application will start a server and listens on port 8080 for connections. And for requests to the root URL it will respond with "🚀 Hello World from TypeScript 🚀" as we will see next.
+The application will start a server and listens on port 8080 for connections. And for any requests to the root URL it will respond with "🚀 Hello World from TypeScript 🚀" as we will see next.
 
 </br></br>
 
