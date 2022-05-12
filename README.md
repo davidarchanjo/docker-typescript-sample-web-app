@@ -22,7 +22,7 @@ $ cd docker-typescript-sample-web-app
 ```shell
 $ npm init -y
 ```
-From the command above, the `-y` flag indicates to `npm init` to automatically accept and apply the default settings. After this command completes you should have with a `package.json` file with content similar to the following:
+From the command above, the `-y` flag indicates to `npm init` to automatically accept and apply the default settings. After this command completes you should have a `package.json` file with content similar to the following:
 ```json
 {
     "name": "docker-typescript-sample-web-app",
