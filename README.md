@@ -118,7 +118,7 @@ FROM node:16-alpine
 # creates inside the image a directory to hold the application code
 WORKDIR /usr/src/app
 
-# copies all files/directories from where docker build is been run into the path relative to WORKDIR
+# copies all files/directories from where docker build command is run into the path relative to WORKDIR
 COPY . .
 
 # based on package-lock.json, install only dependencies. devDependencies are ignored
