@@ -130,7 +130,7 @@ RUN npm install -g typescript
 # compiles the project by transpiling TypeScript files (.ts) into JavaScript files (.js). The resulting .js files are put into the dist directory
 RUN tsc -p .
 
-# defines the application will be listening for request on the port 8080
+# defines the application will be listening for requests on port 8080
 EXPOSE 8080
 
 # defines the command to run the application
