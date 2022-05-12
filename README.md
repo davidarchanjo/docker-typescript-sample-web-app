@@ -139,7 +139,7 @@ Keep-Alive: timeout=5
 </br></br>
 
 ## DOCKERIZING THE APPLICATION
-### 1 - Define the Dockerfile
+### 1 - Define the [Dockerfile](./Dockerfile)
 ```docker
 # indicates the base image
 FROM node:16-alpine
