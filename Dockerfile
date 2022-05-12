@@ -6,7 +6,9 @@ COPY . .
 
 RUN npm ci --only=production
 
-RUN npm install -g typescript 
+RUN npm install -D @types/node
+
+RUN npm install -g typescript
 
 RUN tsc -p .
 

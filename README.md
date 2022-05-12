@@ -56,7 +56,8 @@ For this sample project, we can configure with the following settings:
     "target": "es6", // indicates the output language level
     "moduleResolution": "node", // indicates the module resolution strategy. 'node' is for when using CommonJS implementation
     "sourceMap": true, // enables the generation of sourcemap files
-    "outDir": "dist" // indicates the location to output .js files after transpilation
+    "outDir": "dist", // indicates the location to output .js files after transpilation
+    "types": ["node"] // indicates to include in the global scope the listed packages. In this case all packages from 'node'
   },
   "lib": ["es2015"] // indicates what default set of type definitions for built-in JS APIs should be included by Typescript
 }
@@ -73,12 +74,15 @@ $ npm install -D @types/express
 ```
 The first command installs Express in the project and saves it in the dependencies list in the package.json file. The second command installs a npm utility tool for running TypeScript directly from Node.js without precompilation. The third command installs the custom types for Node.js in typescript. And the last command installs the Express types for TypeScript support and saves it in the devDependencies list.
 
+Notice that we could run the last three command as one, like `npm install -D ts-node @types/node @types/express`. But I chose to do as separate commands in order to promote a better understanding.
+
 After install those development dependencies, add the following lines to the scripts section in the package.json file:
 ```json
 "dev": "ts-node app.ts",
-"start": "ts-node dist/app.js",
+"prd": "node dist/app.js",
 "build": "tsc -p ."
 ```
+From those entries, we can now execute the application in development mode by executing `npm run dev`. Or build the application for production with executing `npm run build`. And then run the application in production mode by executing `npm run prd`.
 
 </br></br>
 
@@ -148,6 +152,9 @@ COPY . .
 
 # based on package-lock.json, install only dependencies. devDependencies are ignored
 RUN npm ci --only=production
+
+# required dependencies so the application can have access to the global 'process' module from Node in production
+RUN npm install -D @types/node
 
 # installs Typescript globally in the container runtime system
 RUN npm install -g typescript 
