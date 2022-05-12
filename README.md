@@ -121,7 +121,7 @@ WORKDIR /usr/src/app
 # copies all files/directories from where docker build is been run into the path relative to WORKDIR
 COPY . .
 
-# based on package-lock.json, install only dependencies and not installing any devDependencies 
+# based on package-lock.json, install only dependencies. devDependencies are ignored
 RUN npm ci --only=production
 
 # installs Typescript globally in the container runtime system
