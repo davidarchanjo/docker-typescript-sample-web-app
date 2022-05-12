@@ -20,7 +20,7 @@ $ cd docker-typescript-sample-web-app
 ```shell
 $ npm init -y
 ```
-From the command above, the `-y` flag indicates to `npm init` to automatically accept and apply the default settings. After this command completes you should have a `package.json` file with content similar to the following:
+From the command above, the `-y` flag indicates to `npm init` to automatically accept and apply the default settings. After this command completes you should have a [package.json](./package.json) file with content similar to the following:
 ```json
 {
     "name": "docker-typescript-sample-web-app",
@@ -41,7 +41,7 @@ From the command above, the `-y` flag indicates to `npm init` to automatically a
 ```shell
 $ npm install -D typescript
 ```
-From the command above, the `-D` flag indicates to `npm install` to install TypeScript as a development dependency, which adds it to the devDependencies list at `package.json`. 
+From the command above, the `-D` flag indicates to `npm install` to install TypeScript as a development dependency, which adds it to the devDependencies list at [package.json](./package.json). 
 
 As a last step, it's required to configure TypeScript compiler options, and for this task we have to create a `tsconfig.json` at the project's root path.
 ```shell
@@ -72,11 +72,11 @@ $ npm install -D ts-node
 $ npm install -D @types/node
 $ npm install -D @types/express
 ```
-The first command installs Express in the project and saves it in the dependencies list in the package.json file. The second command installs a npm utility tool for running TypeScript directly from Node.js without precompilation. The third command installs the custom types for Node.js in typescript. And the last command installs the Express types for TypeScript support and saves it in the devDependencies list.
+The first command installs Express in the project and saves it in the dependencies list in the [package.json](./package.json) file. The second command installs a npm utility tool for running TypeScript directly from Node.js without precompilation. The third command installs the custom types for Node.js in typescript. And the last command installs the Express types for TypeScript support and saves it in the devDependencies list.
 
 Notice that we could run the last three command as one, like `npm install -D ts-node @types/node @types/express`. But I chose to do as separate commands in order to promote a better understanding.
 
-After install those development dependencies, add the following lines to the scripts section in the package.json file:
+After install those development dependencies, add the following lines to the scripts section in the [package.json](./package.json) file:
 ```json
 "dev": "ts-node app.ts",
 "prd": "node dist/app.js",
