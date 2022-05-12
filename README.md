@@ -127,7 +127,7 @@ RUN npm ci --only=production
 # installs Typescript globally in the container runtime system
 RUN npm install -g typescript 
 
-# compiles the project by transpiling TypeScript into JavaScript
+# compiles the project by transpiling TypeScript files (.ts) into JavaScript files (.js)
 RUN tsc -p .
 
 # defines that the application will be listening for request on the port 8080
