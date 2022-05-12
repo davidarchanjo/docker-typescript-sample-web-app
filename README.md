@@ -139,7 +139,8 @@ Keep-Alive: timeout=5
 </br></br>
 
 ## DOCKERIZING THE APPLICATION
-### 1 - Define the [Dockerfile](./Dockerfile)
+### 1 - Define the Dockerfile
+The [Dockerfile](./Dockerfile) is what we use to define and create our Docker image. It is through it that it will be defined which components will be used in the compositioin of our container, in addition to allow the definition of a personalized environment which is dedicated to what our project needs.
 ```docker
 # indicates the base image
 FROM node:16-alpine
@@ -172,7 +173,7 @@ CMD ["node", "dist/app.js"]
 
 
 ### 2 - Define the .dockerignore
-To ensure only the required files are copied into the Docker image, create a file in the project root path called .dockerignore 
+To ensure only the required files are copied into the Docker image, create a file in the project root path called [.dockerignore](./.dockerignore).
 ```shell
 $ touch .dockerignore
 ```
