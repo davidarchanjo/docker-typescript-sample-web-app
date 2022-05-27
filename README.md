@@ -72,17 +72,17 @@ For this sample project, we need only to configure the following options:
 Check [here](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) to know about all other the possible options.
 </br>
 
-### 4 - Install and configure ExpressJS in the project
+### 4 - Install and configure Express.js in the project
 ```shell
 $ npm install express
 $ npm install -D ts-node
 $ npm install -D @types/node
 $ npm install -D @types/express
 ```
-`npm install express` - This command installs ExpressJS in the project.<br>
+`npm install express` - This command installs Express.js in the project.<br>
 `npm install -D ts-node` - This command installs Ts-Node in the project so we can run our TypeScript code directly from Node without precompilation.<br>
 `npm install -D @types/node` - This command installs custom types for Node in Typescript.<br>
-`npm install -D @types/express` - This command installs the ExpressJS types for TypeScript's support.
+`npm install -D @types/express` - This command installs the Express.js types for TypeScript's support.
 
 The last three installed dependencies were saved it in the devDependency list section in the [package.json](./package.json). Moreover those commands could be executed as one, `npm install -D ts-node @types/node @types/express`.
 
@@ -97,7 +97,7 @@ From those entries, we can now execute the application in development mode by ex
 </br></br>
 
 ## IMPLEMENTING THE APPLICATION
-We will create a [app.ts](./app.ts) file where we will define a very simple Web application using the [Express.js](https://expressjs.com/) framework.
+We will create a [app.ts](./app.ts) file where we will define a very simple Web application using the [Express.js](https://Express.js.com/) framework.
 ```shell
 $ touch app.ts
 ```
