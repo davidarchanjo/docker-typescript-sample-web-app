@@ -233,7 +233,7 @@ From the command above, the `--name` flag is used give a memorable name to the c
 
 You should get an output like:
 ```shell
-Express is listening at http://localhost:8080
+Application is listening at http://localhost:8080
 ```
 </br>
 
