@@ -161,15 +161,15 @@ EXPOSE 8080
 
 CMD ["node", "dist/app.js"]
 ```
-`FROM node:16-alpine` - Indicates the base image of our container.
-`WORKDIR /usr/src/app` - Creates a directory to hold the application code in the container's file system.
-`COPY . .` - Copies all files and directories from where `docker build` command is ran into the path relative to WORKDIR
-`RUN npm ci --only=production` - Based on [package-lock.json](./package-lock.json) install only dependencies. devDependencies are ignored
-`RUN npm install -D @types/node` - Installs `types/node` as devDependency so that our application can have access to the global 'process' module from Node in production.
-`RUN npm install -g typescript` - Installs Typescript globally in the container runtime system so we can have access to `tsc`, the Typescript cli compiler.
-`RUN tsc -p .` - Compiles the project by transpiling TypeScript files (.ts) into JavaScript files (.js). The resulting .js files are put into the dist directory
-`EXPOSE 8080` - Defines that the application will be listening for requests at 8080 port.
-`CMD ["node", "dist/app.js"]` - Defines the command to run the application
+`FROM node:16-alpine` - Indicates the base image of our container.<br>
+`WORKDIR /usr/src/app` - Creates a directory to hold the application code in the container's file system.<br>
+`COPY . .` - Copies all files and directories from where `docker build` command is ran into the path relative to WORKDIR.<br>
+`RUN npm ci --only=production` - Based on [package-lock.json](./package-lock.json) install only dependencies. devDependencies are ignored.<br>
+`RUN npm install -D @types/node` - Installs `types/node` as devDependency so that our application can have access to the global 'process' module from Node in production.<br>
+`RUN npm install -g typescript` - Installs Typescript globally in the container runtime system so we can have access to `tsc`, the Typescript cli compiler.<br>
+`RUN tsc -p .` - Compiles the project by transpiling TypeScript files (.ts) into JavaScript files (.js). The resulting .js files are put into the dist directory.<br>
+`EXPOSE 8080` - Defines that the application will be listening for requests at 8080 port.<br>
+`CMD ["node", "dist/app.js"]` - Defines the command to run the application.
 </br>
 
 
