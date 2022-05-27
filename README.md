@@ -50,32 +50,43 @@ For this sample project, we need only to configure the following options:
 ```json
 {
   "compilerOptions": {
-    "module": "commonjs", // indicates the module code generation method
-    "esModuleInterop": true, // indicates to import CommonJS modules in compliance with ES6 modules spec
-    "target": "es6", // indicates the output language level
-    "moduleResolution": "node", // indicates the module resolution strategy. 'node' is for when using CommonJS implementation
-    "sourceMap": true, // enables the generation of sourcemap files
-    "outDir": "dist", // indicates the location to output .js files after transpilation
-    "types": ["node"] // indicates to include in the global scope the listed packages. In this case all packages from 'node'
+    "module": "commonjs", 
+    "esModuleInterop": true,
+    "target": "es6",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "dist",
+    "types": ["node"]
   },
-  "lib": ["es2015"] // indicates what default set of type definitions for built-in JS APIs should be included by Typescript
+  "lib": ["es2015"]
 }
 ```
-Check [here](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) to know about all the possible options.
+`"module": "commonjs"` - Indicates which module code generation method should to use.<br>
+`"esModuleInterop": true` - Indicates to import CommonJS modules in compliance with ES6 modules spec.<br>
+`"target": "es6"` - Indicates the output language level.<br>
+`"moduleResolution": "node"` - Indicates the module resolution strategy. `node` is for when using `commonjs` implementation.<br>
+`"sourceMap": true` - Enables the generation of sourcemap files.<br>
+`"outDir": "dist"` - Indicates the location to output .js files after transpilation.<br>
+`"types": ["node"]` - Indicates to include in the global scope the listed packages. In this case all packages from 'node'.<br>
+`"lib": ["es2015"]` - Indicates what default set of type definitions for built-in JS APIs should be included by Typescript.<br>
+Check [here](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) to know about all other the possible options.
 </br>
 
-### 4 - Install and configure Express in the project
+### 4 - Install and configure ExpressJS in the project
 ```shell
 $ npm install express
 $ npm install -D ts-node
 $ npm install -D @types/node
 $ npm install -D @types/express
 ```
-The first command installs Express in the project and saves it in the dependencies list in the [package.json](./package.json) file. The second command installs a npm utility tool for running TypeScript directly from Node.js without precompilation. The third command installs the custom types for Node.js in typescript. And the last command installs the Express types for TypeScript support and saves it in the devDependencies list.
+`npm install express` - This command installs ExpressJS in the project.<br>
+`npm install -D ts-node` - This command installs Ts-Node in the project so we can run our TypeScript code directly from Node without precompilation.<br>
+`npm install -D @types/node` - This command installs custom types for Node in Typescript.<br>
+`npm install -D @types/express` - This command installs the ExpressJS types for TypeScript's support.
 
-Notice that we could run the last three command as one, like `npm install -D ts-node @types/node @types/express`. But I chose to do as separate commands in order to promote a better understanding.
+The last three installed dependencies were saved it in the devDependency list section in the [package.json](./package.json). Moreover those commands could be executed as one, `npm install -D ts-node @types/node @types/express`.
 
-After install those development dependencies, add the following lines to the scripts section in the [package.json](./package.json) file:
+After installing all these libraries, add the following lines to the scripts section in the [package.json](./package.json):
 ```json
 "dev": "ts-node app.ts",
 "prd": "node dist/app.js",
@@ -116,63 +127,54 @@ As mentioned earlier, to run our TypeScript application we will use [ts-node](ht
 $ npm run dev
 ```
 
-Now, if we visit our browser at http://localhost:8080, we should get the message:
-```
-🚀 Hello World from TypeScript 🚀
-```
+Now, if we visit your browser at http://localhost:8080, you should get:
+![banner](./assets/browser.jpg)
+<br>
 
-Or from the shell using `curl localhost:8080` we should get a response like:
+Or from the shell using `curl` you should get the same message:
 ```shell
-HTTP/1.1 200 OK
-X-Powered-By: Express
-Content-Type: text/html; charset=utf-8
-Content-Length: 11
-ETag: W/"b-Ck1VqNd45QIvq3AZd8XYQLvEhtA"
-Date: Wed, 11 May 2022 18:48:51 GMT
-Connection: keep-alive
-Keep-Alive: timeout=5
+$ curl localhost:8080
 
 🚀 Hello World from TypeScript 🚀
 ```
-
 </br></br>
 
 ## DOCKERIZING THE APPLICATION
 ### 1 - Define the Dockerfile
 The [Dockerfile](./Dockerfile) is what we use to configure and build our Docker image. It is through it that we will define which components will be used in the composition of our container, as well as other requirements at the operating system level that our project needs.
 ```docker
-# indicates the base image
 FROM node:16-alpine
 
-# creates inside the image a directory to hold the application code
 WORKDIR /usr/src/app
 
-# copies all files/directories from where docker build command is run into the path relative to WORKDIR
 COPY . .
 
-# based on package-lock.json, install only dependencies. devDependencies are ignored
 RUN npm ci --only=production
 
-# required dependencies so the application can have access to the global 'process' module from Node in production
 RUN npm install -D @types/node
 
-# installs Typescript globally in the container runtime system
 RUN npm install -g typescript 
 
-# compiles the project by transpiling TypeScript files (.ts) into JavaScript files (.js). The resulting .js files are put into the dist directory
 RUN tsc -p .
 
-# defines the application will be listening for requests on port 8080
 EXPOSE 8080
 
-# defines the command to run the application
 CMD ["node", "dist/app.js"]
 ```
+`FROM node:16-alpine` - Indicates the base image of our container.
+`WORKDIR /usr/src/app` - Creates a directory to hold the application code in the container's file system.
+`COPY . .` - Copies all files and directories from where `docker build` command is ran into the path relative to WORKDIR
+`RUN npm ci --only=production` - Based on [package-lock.json](./package-lock.json) install only dependencies. devDependencies are ignored
+`RUN npm install -D @types/node` - Installs `types/node` as devDependency so that our application can have access to the global 'process' module from Node in production.
+`RUN npm install -g typescript` - Installs Typescript globally in the container runtime system so we can have access to `tsc`, the Typescript cli compiler.
+`RUN tsc -p .` - Compiles the project by transpiling TypeScript files (.ts) into JavaScript files (.js). The resulting .js files are put into the dist directory
+`EXPOSE 8080` - Defines that the application will be listening for requests at 8080 port.
+`CMD ["node", "dist/app.js"]` - Defines the command to run the application
 </br>
 
 
 ### 2 - Define the .dockerignore
-To ensure only the required files are copied into the Docker image, create a file in the project root path called [.dockerignore](./.dockerignore).
+To ensure only the required files are copied into the Docker image, create a file in the project root path called [.dockerignore](./.dockerignore). The .dockerignore allows us to mention a list of files and/or directories which we want be ignored while building our image. This would definitely reduce the size of the image and also help to speed up the docker build process.
 ```shell
 $ touch .dockerignore
 ```
