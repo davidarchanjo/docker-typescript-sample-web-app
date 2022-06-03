@@ -127,7 +127,7 @@ As mentioned earlier, to run our TypeScript application we will use [ts-node](ht
 $ npm run dev
 ```
 
-Now, if we visit your browser at http://localhost:8080, you should get:
+Now, if we visit the browser at http://localhost:8080, you should get:
 ![banner](./assets/browser.jpg)
 <br>
 
